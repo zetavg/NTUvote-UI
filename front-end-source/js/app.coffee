@@ -4,8 +4,8 @@ $v = $('.main > *')
 if $v.width()*$v.length < $(window).width()
   $('.main').addClass('mini')
 else
-  $('.main').prepend('<span class="main-before"></span>')
-  $('.main').append('<span class="main-after"></span>')
+  $('.main').prepend('<span class="main-before"><div class="after">a</div></span>')
+  $('.main').append('<span class="main-after"><div class="after">a</div></span>')
 
 $('.candidate .choices label.agree').append('<span class="agree"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px" viewBox="-60 -60 720 720" xml:space="preserve"><circle class="background" cx="300" cy="300" r="360"/><path class="icon" d="M300,125c46.744,0,90.691,18.203,123.744,51.256S475,253.256,475,300 s-18.203,90.691-51.256,123.744S346.744,475,300,475s-90.691-18.203-123.744-51.256S125,346.744,125,300 s18.203-90.691,51.256-123.744S253.256,125,300,125 M300,75C175.736,75,75,175.736,75,300s100.736,225,225,225s225-100.736,225-225 S424.264,75,300,75L300,75z"/></svg></span>')
 $('.candidate .choices label.none').append('<span class="none"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px" viewBox="-60 -60 720 720" xml:space="preserve"><circle class="background" cx="300" cy="300" r="360"/><rect class="icon" x="125" y="275" width="350" height="50"/></svg></span>')
@@ -127,6 +127,9 @@ if !Modernizr.cssvhunit or !Modernizr.csscalc
   $('.main').css 'padding-top', ($(window).height()*0.2) + 'px'
   $('.main').css 'margin-top', (-$(window).height()*0.2) + 'px'
   $('.candidate .pic').css 'height', ($(window).height()*0.8 - $('.candidate .id').height() - $('.candidate .elect').height() - $('.candidate .choices').height() - $('.candidate .name').height() - 60) + 'px'
+
+$('.main .main-after .after').css 'bottom', (-$(window).height()*0.10) + 'px'
+$('.main .main-before .after').css 'bottom', (-$(window).height()*0.10) + 'px'
 
 setTimeout ->
   $('body').addClass('ready')
