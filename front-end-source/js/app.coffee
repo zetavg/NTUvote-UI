@@ -1,11 +1,24 @@
 window.skip = false
 $v = $('.main > *')
 
+checkScrollingR = () ->
+  if (($('#main').scrollLeft() + $('#main').width()) >= $('#main > .votes').width())
+    $('.action.button').attr("disabled", false)
+    $('.actions .notice').html('')
+  else
+    setTimeout ->
+      checkScrollingR()
+    , 100
+
 if $v.width()*$v.length < $(window).width()
   $('.main').addClass('mini')
 else
   $('.main').prepend('<span class="main-before"><div class="after">a</div></span>')
   $('.main').append('<span class="main-after"><div class="after">a</div></span>')
+  $('.action.button').attr("disabled", true)
+  $('.actions').append('<div class="notice"></div>')
+  $('.actions .notice').html('請先向右捲動至底部再送出。Please scroll to the right to submit.')
+  checkScrollingR()
 
 $('.candidate .choices label.agree').append('<span class="agree"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px" viewBox="-60 -60 720 720" xml:space="preserve"><circle class="background" cx="300" cy="300" r="360"/><path class="icon" d="M300,125c46.744,0,90.691,18.203,123.744,51.256S475,253.256,475,300 s-18.203,90.691-51.256,123.744S346.744,475,300,475s-90.691-18.203-123.744-51.256S125,346.744,125,300 s18.203-90.691,51.256-123.744S253.256,125,300,125 M300,75C175.736,75,75,175.736,75,300s100.736,225,225,225s225-100.736,225-225 S424.264,75,300,75L300,75z"/></svg></span>')
 $('.candidate .choices label.none').append('<span class="none"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px" viewBox="-60 -60 720 720" xml:space="preserve"><circle class="background" cx="300" cy="300" r="360"/><rect class="icon" x="125" y="275" width="350" height="50"/></svg></span>')

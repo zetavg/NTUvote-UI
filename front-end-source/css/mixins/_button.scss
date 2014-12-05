@@ -34,7 +34,7 @@
 
 	&:disabled {
 		color: darken($color, 12%);
-		@include text-shadow(0 1px 1px rgba(255,255,255, .4));
+		@include text-shadow(0 0 3px rgba(255,255,255, .5));
 		@include background(linear-gradient(bottom, $color, darken($color, 5%)));
 	}
 }
