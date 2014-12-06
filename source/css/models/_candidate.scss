@@ -18,6 +18,11 @@
 	margin-left: 4px;
 	margin-right: 4px;
 
+	.many & {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 	&:first-child {
 		margin-left: 2px;
 	}
@@ -52,6 +57,11 @@
 		z-index: 8;
 		border: none;
 		cursor: pointer;
+
+		.many & {
+			height: $act-height*0.64;
+			line-height: $act-height*0.64;
+		}
 
 		&::after {
 			content: '';
@@ -119,6 +129,11 @@
 		line-height: $name-height;
 		font-weight: 800;
 		margin-top: -5px;
+
+		.many & {
+			height: $name-height*0.8;
+			line-height: $name-height*0.8;
+		}
 	}
 
 	.choices {
