@@ -4,6 +4,7 @@ host-config.php
 /.tmp
 /.sass-cache
 /.cache
-/front-end-source/bower_components
+/source/bower_components
+/build
 
 .DS_Store

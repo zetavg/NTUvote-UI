@@ -86,36 +86,23 @@ $('.token-form').submit ->
 $('.single-selection-form').submit (e) ->
   console.log e
   if $('.candidate.selection.selected')[0]
-<<<<<<< HEAD
-    if confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + $('.candidate.selection.selected').children('.name').html() + '，確定嗎？ You have decided to vote for no.' + $('#selection').val() + ' - ' + $('.candidate.selection.selected').children('.name').html() + ', is that right?')
-=======
     if window.skip || confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + $('.candidate.selection.selected').children('.name').html() + '，確定嗎？\n You’ve decided to vote for No. ' + $('#selection').val() + ' - ' + $('.candidate.selection.selected').children('.name').html() + ', is that right?')
->>>>>>> 1927df6... 實作略過投票功能
       $('input[type="submit"]').prop 'disabled', true
       $('body').addClass('sending')
       return true
     else
       return false
   else
-<<<<<<< HEAD
-    if confirm('您決定投空白廢票，確定嗎？ You have decided to cast a blank ballot, is that right?')
-=======
     if window.skip || confirm('您決定投空白廢票，確定嗎？\n You’ve decided to cast a blank ballot, is that right?')
->>>>>>> 1927df6... 實作略過投票功能
       $('input[type="submit"]').prop 'disabled', true
       $('body').addClass('sending')
       return true
     else
       return false
 
-<<<<<<< HEAD
-$('.step3-form').submit ->
-  if confirm('確定送出？ Are you sure you want to submit?')
-=======
 $('.multiple-selection-form').submit (e) ->
   console.log e
   if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
->>>>>>> 1927df6... 實作略過投票功能
     $('input[type="submit"]').prop 'disabled', true
     $('body').addClass('sending')
     return true

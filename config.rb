@@ -2,28 +2,15 @@
 # Middleman
 ##
 
-set :source, "front-end-source"
-set :build_dir, ".tmp"
-
-class CopyAssets < Middleman::Extension
-  def initialize(app, options_hash={}, &block)
-    super
-    app.after_build do
-      system "cp -Rf #{root}/.tmp/css #{root}/"
-      system "cp -Rf #{root}/.tmp/js #{root}/"
-      # system "cp -Rf #{root}/.tmp/img #{root}/"
-    end
-  end
-end
-
-::Middleman::Extensions.register(:copy_assets, CopyAssets)
+set :source, "source"
+set :build_dir, "build"
 
 ##
 # Bower
 ##
 
 @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-ignore @bower_config["directory"].gsub(/front-end-source\//, "") + '/*'
+ignore @bower_config["directory"].gsub(/source\//, "") + '/*'
 
 ###
 # Compass
@@ -32,9 +19,9 @@ ignore @bower_config["directory"].gsub(/front-end-source\//, "") + '/*'
 # Change Compass configuration
 compass_config do |config|
   # Require additional compass plugins.
-  config.add_import_path @bower_config["directory"].gsub(/front-end-source\//, "") + "/Han/sass"
-  config.add_import_path @bower_config["directory"].gsub(/front-end-source\//, "") + "/foundation/scss"
-  config.add_import_path @bower_config["directory"].gsub(/front-end-source\//, "") + "/susy/sass"
+  config.add_import_path @bower_config["directory"].gsub(/source\//, "") + "/Han/sass"
+  config.add_import_path @bower_config["directory"].gsub(/source\//, "") + "/foundation/scss"
+  config.add_import_path @bower_config["directory"].gsub(/source\//, "") + "/susy/sass"
   # config.output_style = :compact
 end
 
@@ -60,6 +47,4 @@ configure :build do
 
   # Use relative URLs
   activate :relative_assets
-
-  activate :copy_assets
 end

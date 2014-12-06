@@ -17,6 +17,7 @@ body {
 	margin: 0;
 	min-height: 90%;
 	background-color: $base-backgroundColor;
+	color: foreground-color($base-backgroundColor);
 
 	@include not-selectable;
 
@@ -28,6 +29,10 @@ body {
 		-o-user-select: none;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		outline: 0;
+	}
+
+	a {
+		color: foreground-color($base-backgroundColor);
 	}
 
 	input {
