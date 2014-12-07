@@ -1,8 +1,9 @@
 window.skip = false
-$v = $('.main > *')
+$v = $('.main > .votes')
+$main = $('#main')
 
 checkScrollingR = () ->
-  if (($('#main').scrollLeft() + $('#main').width()) >= $('#main > .votes').width())
+  if (($main.scrollLeft() + $main.width()) >= $v.width())
     $('.action.button').attr("disabled", false)
     $('.actions .notice').html('')
   else
