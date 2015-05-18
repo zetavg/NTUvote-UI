@@ -5,6 +5,8 @@
 //
 // *************************************
 
+$main-padding-lr: 12px;
+
 body {
 	height: 100%;
 
@@ -26,11 +28,12 @@ body {
 	height: 100vh;
 	padding-top: 20%;
 	padding-top: 20vh;
-	padding-left: 12px;
-	padding-right: 12px;
+	padding-left: $main-padding-lr;
+	padding-right: $main-padding-lr;
 	overflow: auto;
 	overflow-y: hidden;
 	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
 	white-space: nowrap;
 
 	-webkit-overflow-scrolling: touch;
@@ -69,6 +72,11 @@ body {
 		content: none;
 	}
 
+	$main-ba-overlay: 34px;
+	$main-ba-overflow: 1000px;
+
+	$ba-width: ($main-ba-overlay + $main-ba-overflow);
+
 	.main-before {
 		position: relative;
 		z-index: 1002;
@@ -80,14 +88,17 @@ body {
 			content: '';
 			position: absolute;
 			bottom: -64px;
-			width: 34px;
-			margin-right: -34px;
+			width: $main-ba-overlay + $main-ba-overflow;
+			// margin-right: -$main-ba-overlay;
 			margin-bottom: -200vh;
 			height: 10240px;
-			left: -12px;
+			left: - $main-padding-lr - $main-ba-overflow;
 			pointer-events: none;
 			@include background(
-				linear-gradient(left, rgba($base-backgroundColor, 1) 0%, rgba($base-backgroundColor, 1) 25%, rgba($base-backgroundColor, 0) 100%)
+				linear-gradient(left,
+					rgba($base-backgroundColor, 1) percentage(($main-ba-overflow + $main-ba-overlay * 0) / $ba-width),
+					rgba($base-backgroundColor, 1) percentage(($main-ba-overflow + $main-ba-overlay * .25) / $ba-width),
+					rgba($base-backgroundColor, 0) 100%)
 			);
 			background-position: left center;
 		}
@@ -104,14 +115,17 @@ body {
 			content: '';
 			position: absolute;
 			bottom: -64px;
-			width: 34px;
-			margin-right: -34px;
+			width: $main-ba-overlay;
+			// margin-right: -$main-ba-overlay;
 			margin-bottom: -200vh;
 			height: 10240px;
-			right: -12px;
+			right: - $main-padding-lr;
 			pointer-events: none;
 			@include background(
-				linear-gradient(right, rgba($base-backgroundColor, 1) 0%, rgba($base-backgroundColor, 1) 25%, rgba($base-backgroundColor, 0) 100%)
+				linear-gradient(right,
+					rgba($base-backgroundColor, 1) 0,
+					rgba($base-backgroundColor, 1) 25%,
+					rgba($base-backgroundColor, 0) 100%)
 			);
 			background-position: right center;
 		}
