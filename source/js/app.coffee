@@ -70,7 +70,7 @@ $('#password3').keydown (e) ->
   if $(this).val().length == 0 && (e.keyCode == 8 || e.keyCode == 37)
     $('#password2').focus()
 
-$('.candidate.selection').each ->
+$('.single-selection-form .candidate.selection').each ->
   $(this).click ->
     if $(this).hasClass 'selected'
       $('.candidate.selection').removeClass 'selected'
@@ -79,6 +79,18 @@ $('.candidate.selection').each ->
       $('#selection').val $(this).children('.id').html()
       $('.candidate.selection').removeClass 'selected'
       $(this).addClass 'selected'
+
+$('.multiple-selection-form .candidate.selection').each ->
+  $(this).click ->
+    if $(this).hasClass 'selected'
+      $(this).removeClass 'selected'
+      $('#selection').val ''
+    else
+      $(this).addClass 'selected'
+    selectedIds = []
+    for selectedItems in $('.candidate.selection.selected')
+      selectedIds.push $(selectedItems).children('.id').html()
+    $('#selection').val selectedIds.join(',')
 
 $('.token-form').submit ->
   if $('#password1').val().match('[A-Z][0-9][A-Z]{2}') && $('#password2').val().match('[A-Z]{3}') && $('#password3').val().match('[A-Z]{3}')
@@ -109,6 +121,15 @@ $('.single-selection-form').submit (e) ->
       return false
 
 $('.multiple-selection-form').submit (e) ->
+  console.log e
+  if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
+    $('input[type="submit"]').prop 'disabled', true
+    $('body').addClass('sending')
+    return true
+  else
+    return false
+
+$('.agree-or-disagree-form').submit (e) ->
   console.log e
   if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
     $('input[type="submit"]').prop 'disabled', true
