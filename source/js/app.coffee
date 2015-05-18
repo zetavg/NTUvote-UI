@@ -18,7 +18,7 @@ else
   $('.main').append('<span class="main-after"><div class="after">a</div></span>')
   # $('.action.button').attr("disabled", true)
   $('.actions').append('<div class="notice"></div>')
-  $('.actions .notice').html('右邊還有喔 →')
+  $('.actions .notice').html('往右邊滑還有喔 →')
   checkScrollingR()
 
 $votesManySelection = $('.votes.many .selection')

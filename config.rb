@@ -48,3 +48,9 @@ configure :build do
   # Use relative URLs
   activate :relative_assets
 end
+
+# Deploy-specific configuration
+activate :deploy do |deploy|
+  deploy.build_before = true
+  deploy.method = :git
+end
