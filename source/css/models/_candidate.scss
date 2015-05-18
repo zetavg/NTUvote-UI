@@ -341,7 +341,12 @@
 }
 
 .candidate:only-child {
-	overflow: visible;
+	overflow: hidden;
+	margin: -16px;
+	margin-bottom: -20px;
+	padding: 16px;
+	width: 334px;
+	border-radius: 2px;
 
 	> * {
 		border: none;
