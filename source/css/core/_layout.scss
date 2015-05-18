@@ -34,9 +34,8 @@ body {
 	overflow-y: hidden;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
+	pointer-events: none;
 	white-space: nowrap;
-
-	-webkit-overflow-scrolling: touch;
 
 	> * {
 		display: inline-block;
