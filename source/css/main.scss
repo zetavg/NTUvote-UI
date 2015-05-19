@@ -1,18 +1,16 @@
 // *************************************
 //
-//   Main
-//   -> NTU Voting
+//   NTU Voting
+//   -> Main Manifest
 //
 // *************************************
 
 @import 'compass';
-// @import 'susy';
 
 // -------------------------------------
 //   Settings
 // -------------------------------------
 
-$RB-size: 66px;
 $base-dark-color: #111;
 $base-light-color: #fff;
 $red: #ff2d55;
@@ -20,66 +18,55 @@ $green: #4cd964;
 $blue: #34aadc;
 $yellow: #ffdb4c;
 $grey: #8e8e93;
-$base-backgroundColor: #44515f;
+$base-background-color: #44515f;
 $candidate-border-color: #888;
 
 // -------------------------------------
-//   Susy
+//   Core
 // -------------------------------------
 
-// $total-columns: 12;
-// $column-width: 4em;
-// $gutter-width: 2em;
-// $grid-padding: $gutter-width*1.2;
-
-// -------------------------------------
-//   Fonts
-// -------------------------------------
-
-@import "core/fonts";
-
-// -------------------------------------
-//   Base64 Image
-// -------------------------------------
-
-@import "core/images";
-
-// -------------------------------------
-//   Animations
-// -------------------------------------
-
-@import "core/animations";
-
-// -------------------------------------
-//   Helpers
-// -------------------------------------
+// ----- Helpers ----- //
 
 @import "core/helpers";
 
-// -------------------------------------
-//   Mixins
-// -------------------------------------
+// ----- Mixins ----- //
 
-@import "mixins/button";
+@import "core/mixins/button";
 
-// -------------------------------------
-//   Base
-// -------------------------------------
+// ----- Fonts ----- //
+
+@import "core/fonts";
+
+// ----- Images ----- //
+
+@import "core/images";
+
+// ----- Animations ----- //
+
+@import "core/animations";
+
+// ----- Base ----- //
 
 @import "core/base";
 
 // -------------------------------------
-//   Layout
+//   Layouts
 // -------------------------------------
 
-@import "core/layout";
+@import "layouts/default";
+@import "layouts/done";
 
 // -------------------------------------
-//   Models
+//   Structures
 // -------------------------------------
 
-@import "models/header";
-@import "models/vote";
-@import "models/candidate";
-@import "models/password-block";
-@import "models/done";
+@import "structures/default_header";
+@import "structures/default_main";
+@import "structures/candidates";
+
+// -------------------------------------
+//   Components
+// -------------------------------------
+
+@import "components/vote";
+@import "components/candidate";

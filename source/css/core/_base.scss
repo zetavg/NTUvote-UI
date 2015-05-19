@@ -1,7 +1,7 @@
 // *************************************
 //
 //   Base
-//   -> 基本元素
+//   -> base HTML elements
 //
 // *************************************
 
@@ -10,43 +10,34 @@ html {
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	font-size: 120%;
-	padding: 0;
-	margin: 0;
 	min-height: 90%;
-	background-color: $base-backgroundColor;
-	color: foreground-color($base-backgroundColor);
+	margin: 0;
+	padding: 0;
+	background-color: $base-background-color;
+	background-image: $loading-gif;
+	background-size: initial;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-size: 120%;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: foreground-color($base-background-color);
 
 	@include not-selectable;
 
 	* {
 		@include box-sizing(border-box);
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		-webkit-user-select: none;
-		-o-user-select: none;
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		@include not-selectable;
+		-webkit-tap-highlight-color: rgba(0,0,0, 0);
 		outline: 0;
 	}
 
 	a {
-		color: foreground-color($base-backgroundColor);
+		color: foreground-color($base-background-color);
 	}
 
 	input {
-		-moz-user-select: auto;
-		-khtml-user-select: auto;
-		-webkit-user-select: auto;
-		-o-user-select: auto;
-	}
-
-	& {
-		background-image: $loading_gif;
-		background-size: initial;
-		background-position: center;
-		background-repeat: no-repeat;
+		@include selectable;
 	}
 
 	&.ready {
@@ -54,7 +45,7 @@ body {
 	}
 
 	&.sending {
-		background-image: $loading_gif;
+		background-image: $loading-gif;
 	}
 }
 
@@ -63,5 +54,5 @@ img {
 }
 
 fieldset {
-	border: none;
+	border: 0;
 }

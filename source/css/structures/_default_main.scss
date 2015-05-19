@@ -1,41 +1,23 @@
 // *************************************
 //
-//   Layout
-//   -> 版面排版
+//   Main Voting Structure
+//   -> 選票呈現結構
 //
 // *************************************
 
-$main-padding-lr: 12px;
-
-body {
-	height: 100%;
-
-	> form {
-		height: 100%;
-	}
-}
-
-.header {
-	height: 20%;
-	height: 20vh;
-	width: 100%;
-}
+// -------------------------------------
+//   選票橫向捲動區與可捲動提示陰影
+// -------------------------------------
 
 .main {
-	margin-top: -20%;
-	margin-top: -20vh;
-	height: 100%;
-	height: 100vh;
-	padding-top: 20%;
-	padding-top: 20vh;
-	padding-left: $main-padding-lr;
-	padding-right: $main-padding-lr;
 	overflow: auto;
-	overflow-y: hidden;
 	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	pointer-events: none;
+	overflow-y: hidden;
+
 	white-space: nowrap;
+
+	pointer-events: auto;
+	-webkit-overflow-scrolling: touch;
 
 	> * {
 		display: inline-block;
@@ -47,13 +29,14 @@ body {
 		content: '';
 		position: fixed;
 		z-index: 1001;
-		width: 100vw;
-		height: 100vh;
-		width: 100%;
-		height: 100%;
 		top: 0;
 		left: 0;
+		width: 100vw;
+		width: 100%;
+		height: 100vh;
+		height: 100%;
 		pointer-events: none;
+
 		@include background(
 			radial-gradient(0 50%, rgba(0,0,0, .64) 0%, rgba(0,0,0, 0) 60%),
 			radial-gradient(100% 50%, rgba(0,0,0, .64) 0%, rgba(0,0,0, 0) 60%)
@@ -76,63 +59,64 @@ body {
 
 	$ba-width: ($main-ba-overlay + $main-ba-overflow);
 
-	.main-before {
+	.main-before,
+	.main-after {
 		position: relative;
 		z-index: 1002;
+		bottom: 0;
 		height: 1px;
 		overflow: visible;
-		bottom: 0;
 
 		.after {
 			content: '';
 			position: absolute;
 			bottom: -64px;
-			width: $main-ba-overlay + $main-ba-overflow;
-			// margin-right: -$main-ba-overlay;
-			margin-bottom: -200vh;
 			height: 10240px;
-			left: - $main-padding-lr - $main-ba-overflow;
+			margin-bottom: -200vh;
 			pointer-events: none;
+		}
+	}
+
+	.main-before {
+
+		.after {
+			left: - $main-padding - $main-ba-overflow;
+			width: $main-ba-overlay + $main-ba-overflow;
 			@include background(
 				linear-gradient(left,
-					rgba($base-backgroundColor, 1) percentage(($main-ba-overflow + $main-ba-overlay * 0) / $ba-width),
-					rgba($base-backgroundColor, 1) percentage(($main-ba-overflow + $main-ba-overlay * .25) / $ba-width),
-					rgba($base-backgroundColor, 0) 100%)
+					rgba($base-background-color, 1) percentage(($main-ba-overflow + $main-ba-overlay * 0) / $ba-width),
+					rgba($base-background-color, 1) percentage(($main-ba-overflow + $main-ba-overlay * .25) / $ba-width),
+					rgba($base-background-color, 0) 100%)
 			);
 			background-position: left center;
 		}
 	}
 
 	.main-after {
-		position: relative;
-		z-index: 1002;
-		height: 1px;
-		overflow: visible;
-		bottom: 0;
 
 		.after {
-			content: '';
-			position: absolute;
-			bottom: -64px;
+			right: - $main-padding;
 			width: $main-ba-overlay;
-			// margin-right: -$main-ba-overlay;
-			margin-bottom: -200vh;
-			height: 10240px;
-			right: - $main-padding-lr;
-			pointer-events: none;
 			@include background(
 				linear-gradient(right,
-					rgba($base-backgroundColor, 1) 0,
-					rgba($base-backgroundColor, 1) 25%,
-					rgba($base-backgroundColor, 0) 100%)
+					rgba($base-background-color, 1) 0,
+					rgba($base-background-color, 1) 25%,
+					rgba($base-background-color, 0) 100%)
 			);
 			background-position: right center;
 		}
 	}
 }
 
-.submitted {
-	.candidate {
-		top: -99999px;
-	}
+// -------------------------------------
+//   選票排列
+// -------------------------------------
+
+.main .vote {
+	margin: 24px 8px;
+	margin-top: 2px;
+
+	&:only-child, &:first-of-type { margin-left: 18px; }
+	&:only-child, &:last-of-type { margin-right: 18px; }
 }
+

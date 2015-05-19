@@ -1,0 +1,26 @@
+// *************************************
+//
+//   Vote
+//   -> 選票
+//
+// *************************************
+
+.vote {
+	@include box-shadow(
+		0 1px 4px rgba(0,0,0, .5),
+		0 0 40px rgba(128,128,128, .12) inset,
+		0 4px 12px rgba(0,0,0, .32)
+	);
+	@include border-radius(2px);
+	display: inline-block;
+	position: relative;
+	padding: 16px;
+	background-color: #fff;
+	color: #111;
+	white-space: nowrap;
+	overflow: hidden;
+
+	> * {
+		display: inline-block;
+	}
+}

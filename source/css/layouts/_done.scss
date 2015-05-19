@@ -1,19 +1,19 @@
 // *************************************
 //
 //   Done
-//   -> 好
+//   -> 投票成功完成，感謝您的參與
 //
 // *************************************
 
 body .done {
+	display: table;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	display: table;
-	vertical-align: middle;
 	text-align: center;
+	vertical-align: middle;
 	@include opacity(0);
 	@include transition-property(all);
 	@include transition-duration(.3s);
@@ -23,10 +23,11 @@ body .done {
 		vertical-align: middle;
 	}
 
-	h1, h2 {
+	h1,
+	h2 {
 		margin: 0;
 		text-overflow: ellipsis;
-		color: foreground-color($base-backgroundColor);
+		color: foreground-color($base-background-color);
 	}
 
 	h2 {

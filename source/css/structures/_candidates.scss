@@ -1,0 +1,79 @@
+// *************************************
+//
+//   Candidates Structure
+//   -> 候選人們排版結構
+//
+// *************************************
+
+// -------------------------------------
+//   預設選票排版
+// -------------------------------------
+
+.votes,
+.candidates {
+
+	.candidate {
+		margin-left: 4px;
+		margin-right: 4px;
+
+		&:first-child {
+			margin-left: 2px;
+		}
+
+		&:last-child {
+			margin-right: 2px;
+		}
+	}
+
+	// 若一張選票中只有一格候選人
+
+	.candidate:only-child {
+		overflow: hidden;
+		margin: -16px;
+		margin-bottom: -20px;
+		padding: 16px;
+		width: 334px;
+		border-radius: 2px;
+
+		> * {
+			border: none;
+		}
+
+		> *::after {
+			border: none;
+		}
+
+		.id {
+			width: 64%;
+			border-bottom: 1px solid $candidate-border-color;
+		}
+
+		.pic {
+
+			.img {
+				border: 1px solid #aaa;
+			}
+		}
+	}
+}
+
+// -------------------------------------
+//   超多位候選人的密集排版
+// -------------------------------------
+
+.votes.many {
+	text-align: left;
+
+	.selection {
+		width: 200px;
+	}
+
+	.lb {
+		display: block;
+	}
+
+	.candidate {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}

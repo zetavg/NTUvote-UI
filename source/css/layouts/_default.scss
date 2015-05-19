@@ -1,26 +1,47 @@
 // *************************************
 //
-//   Vote
-//   -> 選票
+//   Default Layout
+//   -> 預設選票頁面排版
 //
 // *************************************
 
+$main-padding: 12px;
+$main-padding-left: $main-padding;
+$main-padding-right: $main-padding;
+
+body {
+	height: 100%;
+
+	> * {
+		height: 100%;
+	}
+}
+
+.header {
+	width: 100%;
+	width: 100vw;
+	height: 20%;
+	height: 20vh;
+}
+
+.main {
+	width: 100%;
+	width: 100vw;
+	height: 100%;
+	height: 100vh;
+	margin-top: -20%;
+	margin-top: -20vh;
+	padding-top: 20%;
+	padding-top: 20vh;
+	padding-right: $main-padding;
+	padding-left: $main-padding;
+}
+
+// -------------------------------------
+//   選票的載入動畫
+// -------------------------------------
+
 .vote {
-	@include box-shadow(0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(128, 128, 128, 0.12) inset, 0 4px 12px rgba(0, 0, 0, 0.32));
-	@include border-radius(2px);
-	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	padding: 16px;
-	margin: 24px 8px;
-	margin-top: 2px;
-	background-color: #fff;
-	color: #111;
-	white-space: nowrap;
-
-	&:only-child, &:first-of-type { margin-left: 18px; }
-	&:only-child, &:last-of-type { margin-right: 18px; }
-
 	@for $i from 1 through 100 {
 		&:nth-of-type(#{$i}) {
 			@include transition-delay(#{$i/12}s);
@@ -51,21 +72,5 @@
 		@include translateY(300px);
 		@include transition-duration(1s);
 		@include transition-timing-function(ease-in);
-	}
-
-	> * {
-		display: inline-block;
-	}
-}
-
-.votes.many {
-	text-align: left;
-
-	.selection {
-		width: 200px;
-	}
-
-	.lb {
-		display: block;
 	}
 }

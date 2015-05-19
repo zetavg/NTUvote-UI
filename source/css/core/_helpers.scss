@@ -1,3 +1,9 @@
+// *************************************
+//
+//   Helpers
+//
+// *************************************
+
 // ----- Foreground Color ----- //
 
 @function foreground-color($color) {
@@ -8,8 +14,16 @@
 
 @mixin not-selectable() {
 	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	     -o-user-select: none;
+	        user-select: none;
+}
+
+@mixin selectable() {
+	-webkit-user-select: auto;
+	   -moz-user-select: auto;
+	    -ms-user-select: auto;
+	     -o-user-select: auto;
+	        user-select: auto;
 }
