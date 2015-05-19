@@ -46,7 +46,6 @@ $('.token-form').submit ->
 # submitting token-form
 
 $('.single-selection-form').submit (e) ->
-  console.log e
   if $('.candidate.selection.selected')[0]
     if window.skip || confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + $('.candidate.selection.selected').children('.name').html() + '，確定嗎？\n You’ve decided to vote for No. ' + $('#selection').val() + ' - ' + $('.candidate.selection.selected').children('.name').html() + ', is that right?')
       $('input[type="submit"]').prop 'disabled', true
@@ -65,7 +64,6 @@ $('.single-selection-form').submit (e) ->
 # submitting multiple-selection-form
 
 $('.multiple-selection-form').submit (e) ->
-  console.log e
   if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
     $('input[type="submit"]').prop 'disabled', true
     $('body').addClass('sending')

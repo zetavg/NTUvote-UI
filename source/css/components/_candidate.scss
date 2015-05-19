@@ -133,7 +133,7 @@
 		}
 
 		&::after {
-			content: '';
+			content: '圈選';
 			display: block;
 			position: absolute;
 			z-index: 8;
@@ -144,6 +144,9 @@
 			border: 1px solid $candidate-border-color;
 			border-bottom: 0;
 			pointer-events: none;
+			font-size: 10px;
+			line-height: $act-height;
+			color: rgba(0,0,0, .3);
 		}
 
 		&::before {
@@ -173,6 +176,7 @@
 	&.selected .elect {
 
 		&::after {
+			content: '';
 			background-image: $vote-stamp;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -230,6 +234,7 @@
 				}
 
 				.background {
+					stroke-width: 0px;
 					fill: $green;
 				}
 			}
@@ -242,6 +247,7 @@
 				}
 
 				.background {
+					stroke-width: 0px;
 					fill: $yellow;
 				}
 			}
@@ -254,6 +260,7 @@
 				}
 
 				.background {
+					stroke-width: 0px;
 					fill: $red;
 				}
 			}
@@ -295,6 +302,9 @@
 
 				.background {
 					fill: transparent;
+					stroke: rgba(0,0,0, .3);
+					stroke-width: 18px;
+					stroke-alignment: outer;
 				}
 			}
 		}
@@ -336,6 +346,62 @@
 
 		input.none ~ *::before {
 			content: none;
+		}
+
+		input.agree ~ *::after {
+			content: '贊成';
+		}
+
+		input.disagree ~ *::after {
+			content: '反對';
+		}
+
+		input.none ~ *::after {
+			content: '沒意見';
+		}
+
+		input ~ *::after {
+			position: absolute;
+			top: -4px;
+			right: 0;
+			left: 0;
+			font-size: 10px;
+			line-height: 10px;
+			color: rgba(0,0,0, .3);
+		}
+	}
+
+	// 選票中僅有一位候選人
+
+	&:only-child {
+		margin: -16px;
+		margin-bottom: -20px;
+		width: 334px;
+		border-radius: 2px;
+		overflow: hidden;
+		padding: 16px;
+		padding-left: 0;
+		padding-right: 0;
+
+		> * {
+			border: none;
+		}
+
+		> *::after {
+			border: none;
+		}
+
+		.id {
+			width: 64%;
+		}
+
+		.pic {
+
+			.img {
+				border: 1px solid #aaa;
+				border-left: 0;
+				border-right: 0;
+			}
 		}
 	}
 }

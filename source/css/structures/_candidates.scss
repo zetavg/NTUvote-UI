@@ -28,32 +28,11 @@
 	// 若一張選票中只有一格候選人
 
 	.candidate:only-child {
-		overflow: hidden;
 		margin: -16px;
 		margin-bottom: -20px;
-		padding: 16px;
 		width: 334px;
 		border-radius: 2px;
-
-		> * {
-			border: none;
-		}
-
-		> *::after {
-			border: none;
-		}
-
-		.id {
-			width: 64%;
-			border-bottom: 1px solid $candidate-border-color;
-		}
-
-		.pic {
-
-			.img {
-				border: 1px solid #aaa;
-			}
-		}
+		overflow: hidden;
 	}
 }
 

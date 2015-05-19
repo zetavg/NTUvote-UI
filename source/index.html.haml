@@ -1,8 +1,21 @@
-%ul
-  / %li= link_to 'token', 'token.html', :relative => true
-  %li= link_to 'single_selection', 'single_selection.html', :relative => true
-  %li= link_to 'muitiple_selection', 'muitiple_selection.html', :relative => true
-  %li= link_to 'single_selection_many', 'single_selection_many.html', :relative => true
-  %li= link_to 'agree_or_disagree', 'agree_or_disagree.html', :relative => true
-  %li= link_to 'candidate_with_two_people', 'candidate_with_two_people.html', :relative => true
-  %li= link_to 'done', 'done.html', :relative => true
+.ui-index
+  %ul
+    / %li= link_to 'token', 'token.html', :relative => true
+    %li
+      = link_to 'single_selection', 'single_selection.html', :relative => true
+      %small 單選
+    %li
+      = link_to 'muitiple_selection', 'muitiple_selection.html', :relative => true
+      %small 複選
+    %li
+      = link_to 'agree_or_disagree', 'agree_or_disagree.html', :relative => true
+      %small 正反決
+    %li
+      = link_to 'single_selection_many', 'single_selection_many.html', :relative => true
+      %small 多候選人單選
+    %li
+      = link_to 'candidate_with_two_people', 'candidate_with_two_people.html', :relative => true
+      %small 雙候選人
+    %li
+      = link_to 'done', 'done.html', :relative => true
+      %small 完成畫面

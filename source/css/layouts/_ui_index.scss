@@ -1,0 +1,53 @@
+// *************************************
+//
+//   Done
+//   -> 投票成功完成，感謝您的參與
+//
+// *************************************
+
+body .ui-index {
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	vertical-align: middle;
+	@include opacity(0);
+	@include transition-property(all);
+	@include transition-duration(.3s);
+
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	li {
+		font-size: 32px;
+		line-height: 60px;
+	}
+
+	small {
+		display: inline-block;
+		font-size: 16px;
+		transform: skewX(-23deg);
+		@include opacity(.5);
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 72px;
+			margin-right: 2px;
+			border-bottom: 1px dotted;
+		}
+	}
+}
+
+body.ready .ui-index {
+	@include opacity(1);
+}

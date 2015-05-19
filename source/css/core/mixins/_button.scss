@@ -13,9 +13,9 @@
 	@include transition-property(all);
 	@include transition-duration(.3s);
 	@if lightness($color) < lightness(#999) {
-		color: #fff;
+		color: $base-light-color;
 	} @else {
-		color: #000;
+		color: $base-dark-color;
 	}
 
 	&:hover {

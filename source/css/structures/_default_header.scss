@@ -67,6 +67,14 @@
 			&.skip {
 				@include button($grey);
 			}
+
+			&.green {
+				@include button($green);
+			}
+
+			&.red {
+				@include button($red);
+			}
 		}
 
 		.notice {

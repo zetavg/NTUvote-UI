@@ -19,4 +19,4 @@
               %label.disagree= radio_button_tag "opinion_to_#{i+1}", :class => 'disagree', :value => -1
             .pic
               .img{:style => "background-image: url(#{lorem.image((Random.rand(200)+200).to_s + 'x' + (Random.rand(200)+200).to_s, :random_color => true)})"}
-            .name ◎◎◎
+            .name= fake_name
