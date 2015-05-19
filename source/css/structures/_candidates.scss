@@ -13,8 +13,8 @@
 .candidates {
 
 	.candidate {
-		margin-left: 4px;
-		margin-right: 4px;
+		margin-left: 0;
+		margin-right: 0;
 
 		&:first-child {
 			margin-left: 2px;
@@ -49,10 +49,5 @@
 
 	.lb {
 		display: block;
-	}
-
-	.candidate {
-		margin-left: 0;
-		margin-right: 0;
 	}
 }

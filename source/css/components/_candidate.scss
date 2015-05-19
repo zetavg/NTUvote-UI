@@ -10,15 +10,20 @@
 	width: 300px;
 	text-align: center;
 	overflow: hidden;
+	color: $candidate-color;
+	font-size: $base-font-size;
 
-	$id-height: 36px;
+	$id-height: 50px;
 	$act-height: 64px;
 	$name-height: 68px;
-
-	$candidate-border-color: #555 !default;
+	$border-width: 1px;
 
 	padding-right: 1px;
 	padding-right: 1px;
+
+	border: $border-width solid $candidate-border-color;
+	border-right: 0;
+	&:last-child { border-right: $border-width solid $candidate-border-color; }
 
 	&.big {
 		width: 500px;
@@ -36,13 +41,16 @@
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
-		border: 1px solid $candidate-border-color;
+		width: 90%;
+		border: $border-width solid $candidate-border-color;
 		border-bottom: 0;
+		border-right: 0;
+		border-left: 0;
 		@include transition-delay(0);
 	}
 
-	> *:last-child {
-		border: 1px solid $candidate-border-color;
+	> *:first-child {
+		border-top: 0;
 	}
 
 	// 編號欄位
@@ -50,23 +58,22 @@
 	.id {
 		height: $id-height;
 		line-height: $id-height;
+		font-size: 1.2em;
 	}
 
 	// 相片欄位
 
 	.pic {
-		display: inline-block;
-		position: relative;
-		width: 100%;
 		height: calc(80vh - #{$id-height} - #{$act-height} - #{$name-height} - 60px);
 		min-height: 100px;
 		max-height: 400px;
 
 		.img {
 			position: absolute;
-			top: 0;
-			bottom: 0;
-			background-color: rgba(#eee, .5);
+			top: 4px;
+			bottom: 4px;
+			right: 4px;
+			left: 4px;
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
@@ -74,18 +81,18 @@
 
 		.img:first-child {
 			right: 50%;
-			left: 0;
-			border-right: 1px solid rgba(0,0,0, .1);
+			left: 4px;
+			border-right: 1px solid rgba($candidate-border-color, .1);
 		}
 
 		.img:last-child {
-			right: 0;
+			right: 4px;
 			left: 50%;
 		}
 
 		.img:only-child {
-			right: 0;
-			left: 0;
+			right: 4px;
+			left: 4px;
 			border-right: 0;
 		}
 	}
@@ -94,7 +101,6 @@
 
 	.name {
 		height: $name-height;
-		margin-top: -5px;
 		font-size: 1.7em;
 		font-weight: 800;
 		line-height: $name-height;
@@ -124,8 +130,9 @@
 	.elect {
 		z-index: 8;
 		height: $act-height;
-		border: 0;
 		cursor: pointer;
+
+		border: 0;
 
 		.many & {
 			height: $act-height * .64;
@@ -141,12 +148,16 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			border: 1px solid $candidate-border-color;
 			border-bottom: 0;
 			pointer-events: none;
 			font-size: 10px;
 			line-height: $act-height;
 			color: rgba(0,0,0, .3);
+
+			border: $border-width solid $candidate-border-color;
+			border-bottom: 0;
+			border-right: 0;
+			border-left: 0;
 		}
 
 		&::before {
@@ -383,7 +394,10 @@
 		padding-left: 0;
 		padding-right: 0;
 
+		border: 0;
+
 		> * {
+			width: 100%;
 			border: none;
 		}
 
@@ -398,9 +412,31 @@
 		.pic {
 
 			.img {
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				background-color: rgba($candidate-color, .28);
 				border: 1px solid #aaa;
 				border-left: 0;
 				border-right: 0;
+
+				&:first-child {
+					right: 50%;
+					left: 0;
+					border-right: 1px solid rgba($candidate-border-color, .1);
+				}
+
+				&:last-child {
+					right: 0;
+					left: 50%;
+				}
+
+				&:only-child {
+					right: 0;
+					left: 0;
+					border-right: 0;
+				}
 			}
 		}
 	}

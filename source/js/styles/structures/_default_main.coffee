@@ -36,4 +36,18 @@ $.style.struct_default_main = ->
   $('.main .main-after .after').css 'bottom', (-$(window).height()*0.10) + 'px'
   $('.main .main-before .after').css 'bottom', (-$(window).height()*0.10) + 'px'
 
+  $('.main').scroll (e) ->
+    windowWidth = $(window).width()
+    scrollLeft = e.target.scrollLeft
+    scrollRight = e.target.scrollWidth - e.target.scrollLeft - windowWidth
+
+    if scrollLeft < 0
+      $('.main').addClass 'left-overscroll'
+    else
+      $('.main').removeClass 'left-overscroll'
+    if scrollRight < 0
+      $('.main').addClass 'right-overscroll'
+    else
+      $('.main').removeClass 'right-overscroll'
+
 $.style.struct_default_main()

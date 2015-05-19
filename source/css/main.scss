@@ -11,6 +11,7 @@
 //   Settings
 // -------------------------------------
 
+$base-font-size: 18px;
 $base-dark-color: #111;
 $base-light-color: hsl(32, 1%, 100%);
 $paper: $base-light-color;
@@ -20,7 +21,8 @@ $blue: hsl(198, 71%, 53%);
 $yellow: hsl(48, 100%, 65%);
 $grey: hsl(240, 2%, 57%);
 $base-background-color: hsl(211, 17%, 32%);
-$candidate-border-color: lighten($base-dark-color, 40%);
+$candidate-border-color: hsl(7, 80%, 32%);
+$candidate-color: hsl(249, 7%, 19%);
 
 // -------------------------------------
 //   Core
