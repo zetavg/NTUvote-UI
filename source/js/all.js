@@ -2,3 +2,7 @@
 //= require fastclick/lib/fastclick.js
 //= require_tree ./styles
 //= include app.js
+
+$(function() {
+    FastClick.attach(document.body);
+});

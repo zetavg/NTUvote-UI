@@ -33,10 +33,12 @@
 	// 所有欄位基本佈局
 
 	> * {
+		display: block;
 		margin-right: auto;
 		margin-left: auto;
 		border: 1px solid $candidate-border-color;
 		border-bottom: 0;
+		@include transition-delay(0);
 	}
 
 	> *:last-child {
@@ -149,13 +151,13 @@
 			display: block;
 			position: absolute;
 			z-index: 0;
+			top: 50%;
+			left: 50%;
 			width: 2024px;
 			width: 140vh;
 			height: 2024px;
 			height: 140vh;
 			background-color: $yellow;
-			top: 50%;
-			left: 50%;
 			pointer-events: none;
 			@include transition-property(all);
 			@include transition-duration(.52s);
@@ -163,7 +165,7 @@
 			@include border-radius(9999px);
 			@include transform-origin(top, left);
 			@include transform(scale(0) translateX(-50%) translateY(-50%));
-			@include opacity(.2);
+			@include opacity(.1);
 		}
 	}
 
@@ -179,7 +181,7 @@
 
 		&::before {
 			@include transform(scale(1) translateX(-50%) translateY(-50%));
-			@include opacity(.7);
+			@include opacity(.5);
 		}
 	}
 
@@ -215,6 +217,10 @@
 			width: 20%;
 			height: $act-height;
 			cursor: pointer;
+
+			> * {
+				pointer-events: none;
+			}
 
 			&.agree input:checked + .agree svg {
 

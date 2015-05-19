@@ -16,7 +16,9 @@
 
 	white-space: nowrap;
 
-	pointer-events: auto;
+	.touch & { pointer-events: none; }
+	.non-touch & { pointer-events: auto; }
+
 	-webkit-overflow-scrolling: touch;
 
 	> * {
