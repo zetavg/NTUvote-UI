@@ -100,10 +100,12 @@
 	// 姓名欄
 
 	.name {
+		position: relative;
 		height: $name-height;
 		font-size: 1.7em;
 		font-weight: 800;
 		line-height: $name-height;
+		overflow: hidden;
 		@include text-shadow(0 0 10px rgba(255,255,255, .9));
 
 		.many & {
@@ -111,17 +113,40 @@
 			line-height: $name-height * .8;
 		}
 
+		> *::before {
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			width: 40px;
+			height: 40px;
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 40px;
+			border-radius: 9999px;
+			border: 1px solid $candidate-border-color;
+			color: $candidate-border-color;
+			opacity: .32;
+		}
+
 		> *:first-child {
 			position: absolute;
 			right: 50%;
 			left: 0;
-			border-right: 1px solid rgba(0,0,0, .1);
+			// border-right: 1px solid rgba(0,0,0, .1);
+
+			&::before {
+				content: '正';
+			}
 		}
 
 		> *:last-child {
 			position: absolute;
 			right: 0;
 			left: 50%;
+
+			&::before {
+				content: '副';
+			}
 		}
 	}
 
