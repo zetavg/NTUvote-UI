@@ -1,0 +1,48 @@
+// *************************************
+//
+//   Scrolling Hint
+//   -> 可捲動提示
+//
+// *************************************
+
+.scrolling-hint {
+	$height: 120px;
+	$min-width: 250px;
+	$background-color: rgba(lighten($candidate-border-color, 20%), .8);
+
+	position: relative;
+	min-width: $min-width;
+	padding: 20px 30px;
+	padding-top: 70px;
+	background-color: $background-color;
+	line-height: $height - 20px - 70px;
+
+	@include transition-property(all);
+	@include transition-duration(.3s);
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: $height*0.8 0 $height*0.8 ($height*0.8)*1.2;
+		border-color: transparent transparent transparent $background-color;
+		top: - $height*0.3;
+		right: - ($height*0.8)*1.2;
+	}
+
+	> svg {
+		position: absolute;
+		top: 24px;
+		right: 8px;
+		width: 30px;
+		height: 30px;
+		@include animation(scrollHint 2.4s infinite ease-in-out);
+	}
+
+	&.hidden,
+	&.hide {
+		opacity: 0 !important;
+	}
+}

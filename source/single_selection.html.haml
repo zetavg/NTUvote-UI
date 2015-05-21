@@ -9,6 +9,7 @@
       = submit_tag "Submit", :class => "action button"
     = text_field_tag :selection, :id => :selection, :type => :hidden
   #main.main
+    .scrolling-hint 滑動來檢視完整選票
     .votes
       .vote
         - 50.times do |i|

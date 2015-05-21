@@ -41,3 +41,38 @@
 		transform: none;
 	}
 }
+
+@include keyframes(scrollHint) {
+
+	0% {
+		@include transform(
+			translateX(0)
+			scale(1.6)
+		);
+		opacity: 0;
+	}
+
+	20% {
+		@include transform(
+			translateX(0)
+			scale(1)
+		);
+		opacity: 1;
+	}
+
+	80% {
+		@include transform(
+			translateX(-180px)
+			scale(1)
+		);
+		opacity: 1;
+	}
+
+	100% {
+		@include transform(
+			translateX(-180px)
+			scale(1.6)
+		);
+		opacity: 0;
+	}
+}

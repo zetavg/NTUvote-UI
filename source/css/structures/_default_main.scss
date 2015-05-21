@@ -151,6 +151,18 @@
 
 		.main-after { opacity: 0; }
 	}
+
+	.scrolling-hint {
+		position: absolute;
+		z-index: 999999;
+		right: 160px;
+		bottom: 100px;
+		opacity: 0;
+	}
+
+	body.ready & .scrolling-hint {
+		opacity: 1;
+	}
 }
 
 // -------------------------------------

@@ -37,6 +37,7 @@ $.style.struct_default_main = ->
   $('.main .main-before .after').css 'bottom', (-$(window).height()*0.10) + 'px'
 
   $('.main').scroll (e) ->
+    $('body.ready .main .scrolling-hint').addClass 'hide'
     windowWidth = $(window).width()
     scrollLeft = e.target.scrollLeft
     scrollRight = e.target.scrollWidth - e.target.scrollLeft - windowWidth
@@ -49,5 +50,12 @@ $.style.struct_default_main = ->
       $('.main').addClass 'right-overscroll'
     else
       $('.main').removeClass 'right-overscroll'
+
+  $('.main .scrolling-hint').append('''
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25.225px" height="25.225px" viewBox="0 0 25.225 25.225" enable-background="new 0 0 25.225 25.225" xml:space="preserve">
+      <circle fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-miterlimit="10" cx="12.612" cy="12.612" r="8.814"/>
+      <circle fill="none" stroke="#FFFFFF" stroke-width="0.7" stroke-miterlimit="10" cx="12.612" cy="12.612" r="12.262"/>
+    </svg>
+    ''')
 
 $.style.struct_default_main()
