@@ -5,8 +5,8 @@
       %h1 NTU Voting
       %h2 點選你想要投給誰
     .actions.two-actions
-      %button.button.skip Skip
-      = submit_tag "Submit", :class => "action button"
+      %button.button.skip 不領票 Skip
+      = submit_tag "送出選票 Submit", :class => "action button"
     = text_field_tag :selection, :id => :selection, :type => :hidden
   #main.main
     .scrolling-hint 滑動來檢視完整選票

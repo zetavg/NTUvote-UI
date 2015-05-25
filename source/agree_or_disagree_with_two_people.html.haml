@@ -5,8 +5,8 @@
       %h1 NTU Voting
       %h2 ○: 同意，✕: 不同意，-: 沒意見。
     .actions.two-actions
-      %button.button.skip Skip
-      = submit_tag "Submit", :class => "action button"
+      %button.button.skip 不領票 Skip
+      = submit_tag "送出選票 Submit", :class => "action button"
   #main.main
     .votes
       - 10.times do |i|

@@ -117,7 +117,7 @@ $('.agree-or-disagree-form').submit (e) ->
 # submitting skips
 
 $('button.skip').click (e) ->
-  if confirm('確定略過此投票？\n Are you sure you want to skip?')
+  if confirm('確定不領此投票？\n Are you sure you want to skip?')
     $('input.skipped').val(true)
     $('.candidate.selection').removeClass 'selected'
     $('#selection').val ''
