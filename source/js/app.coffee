@@ -47,7 +47,12 @@ $('.token-form').submit ->
 
 $('.single-selection-form').submit (e) ->
   if $('.candidate.selection.selected')[0]
-    if window.skip || confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + $('.candidate.selection.selected').children('.name').html() + '，確定嗎？\n You’ve decided to vote for No. ' + $('#selection').val() + ' - ' + $('.candidate.selection.selected').children('.name').html() + ', is that right?')
+    name = $('.candidate.selection.selected').children('.name').html()
+      .replace(/\<\/?div\>/g, '')
+      .replace(/\n/g, '')
+      .trim()
+      .replace(/ +/, ', ')
+    if window.skip || confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + name + '，確定嗎？\n You’ve decided to vote for No. ' + $('#selection').val() + ' - ' + name + ', is that right?')
       $('input[type="submit"]').prop 'disabled', true
       $('body').addClass('sending')
       return true
@@ -64,12 +69,40 @@ $('.single-selection-form').submit (e) ->
 # submitting multiple-selection-form
 
 $('.multiple-selection-form').submit (e) ->
-  if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
-    $('input[type="submit"]').prop 'disabled', true
-    $('body').addClass('sending')
-    return true
+  if $(this).hasClass('choose-one')
+    if $('.candidate.selection.selected').length == 1
+      name = $('.candidate.selection.selected').children('.name').html()
+        .replace(/\<\/?div\>/g, '')
+        .replace(/\n/g, '')
+        .trim()
+        .replace(/ +/, ', ')
+      if window.skip || confirm('您決定投給 ' + $('#selection').val() + ' 號 ' + name + '，確定嗎？\n You’ve decided to vote for No. ' + $('#selection').val() + ' - ' + name + ', is that right?')
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
+    else if $('.candidate.selection.selected').length == 0
+      if window.skip || confirm('您決定投空白廢票，確定嗎？\n You’ve decided to cast a blank ballot, is that right?')
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
+    else
+      if window.skip || confirm('您選擇多個候選人，將會變成廢票，是否送出？\n Selecting multiple candidates will cause this ballot to become invalid, are you sure you want to submit?')
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
   else
-    return false
+    if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
+      $('input[type="submit"]').prop 'disabled', true
+      $('body').addClass('sending')
+      return true
+    else
+      return false
 
 # submitting agree-or-disagree-form
 
