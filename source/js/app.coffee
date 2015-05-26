@@ -22,10 +22,13 @@ $('.multiple-selection-form .candidate.selection').each ->
   $(this).click ->
     if $(this).hasClass 'selected'
       $(this).removeClass 'selected'
+      $(this).removeClass 'multiple-selected'
       $('#selection').val ''
     else
       $(this).addClass 'selected'
     selectedIds = []
+    $('.candidate.selection.selected').addClass 'multiple-selected' if $('.candidate.selection.selected').length > 1
+    $('.candidate.selection.selected').removeClass 'multiple-selected' if $('.candidate.selection.selected').length < 2
     for selectedItems in $('.candidate.selection.selected')
       selectedIds.push $(selectedItems).children('.id').html()
     $('#selection').val selectedIds.join(',')

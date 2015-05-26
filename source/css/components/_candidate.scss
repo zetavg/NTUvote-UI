@@ -225,6 +225,14 @@
 		}
 	}
 
+	.multiple-selection-form.choose-one &.selected.multiple-selected .elect {
+
+		&::before {
+			background-color: $red;
+			@include opacity(.3);
+		}
+	}
+
 	// 正反決圈選欄
 
 	.choices {
