@@ -5,6 +5,7 @@ $.style.struct_default_main = ->
 
   if $v.width()*$v.length < $(window).width()
     $('.main').addClass('mini')
+    $('body .main .scrolling-hint').css 'display', 'none'
   else
     $('.main').prepend \
       '<span class="main-before"><div class="after">a</div></span>'
