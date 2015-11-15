@@ -8,8 +8,8 @@ $.style.candidate = ->
       </svg>
     </span>
     ''')
-  $('.candidate .choices label.none').append('''
-    <span class="none">
+  $('.candidate .choices label.neutral').append('''
+    <span class="neutral">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px" viewBox="-60 -60 720 720" xml:space="preserve">
         <circle class="background" cx="300" cy="300" r="360"/>
         <rect class="icon" x="125" y="275" width="350" height="50"/>
@@ -22,6 +22,10 @@ $.style.candidate = ->
         <circle class="background" cx="300" cy="300" r="360"/>
         <polygon class="icon" points="476.776,158.579 441.421,123.224 300,264.645 158.579,123.224 123.224,158.579 264.645,300 123.224,441.421 158.579,476.776 300,335.355 441.421,476.776 476.776,441.421 335.355,300"/>
       </svg>
+    </span>
+    ''')
+  $('.candidate .choices label.none').append('''
+    <span class="none">
     </span>
     ''')
 

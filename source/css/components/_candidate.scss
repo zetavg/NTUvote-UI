@@ -283,7 +283,7 @@
 				}
 			}
 
-			&.none input:checked + .none svg {
+			&.neutral input:checked + .neutral svg {
 
 				.icon {
 					stroke: transparent;
@@ -307,6 +307,17 @@
 					stroke-width: 0px;
 					fill: $red;
 				}
+			}
+
+			&.none {
+				display: block;
+				position: absolute;
+				right: 0;
+				left: auto;
+				top: -50px;
+				height: 50px;
+				padding: 0 16px;
+				width: auto;
 			}
 		}
 
@@ -388,7 +399,7 @@
 			background-color: $red;
 		}
 
-		input.none ~ *::before {
+		input.neutral ~ *::before {
 			content: none;
 		}
 
@@ -400,7 +411,7 @@
 			content: '反對';
 		}
 
-		input.none ~ *::after {
+		input.neutral ~ *::after {
 			content: '沒意見';
 		}
 
@@ -412,6 +423,33 @@
 			font-size: 10px;
 			line-height: 10px;
 			color: rgba(0,0,0, .3);
+		}
+
+		input.none ~ * {
+			position: relative;
+		}
+
+		input.none ~ *::after {
+			position: relative;
+			content: '✕ 取消圈選';
+			font-size: 10px;
+			line-height: 10px;
+			color: rgba(0, 0, 0, 0.3);
+		}
+
+		input.none:checked ~ *::after {
+			position: relative;
+			content: '如未選擇將視為廢票';
+			font-size: 10px;
+			line-height: 10px;
+			color: rgba(0, 0, 0, 0.3);
+		}
+
+		label.none {
+
+			input {
+				position: absolute;
+			}
 		}
 	}
 
