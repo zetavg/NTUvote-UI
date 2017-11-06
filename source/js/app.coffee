@@ -99,6 +99,28 @@ $('.multiple-selection-form').submit (e) ->
         return true
       else
         return false
+  else if window.selectionLimit
+    if $('.candidate.selection.selected').length == 0
+      if window.skip || confirm('您決定投空白廢票，確定嗎？\n You’ve decided to cast a blank ballot, is that right?')
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
+    else if $('.candidate.selection.selected').length > window.selectionLimit
+      if window.skip || confirm("最多僅能圈選 #{window.selectionLimit} 位候選人，您是否要送出廢票？\n Selecting more then #{window.selectionLimit} candidates will cause this ballot to become invalid, are you sure you want to submit?")
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
+    else
+      if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
+        $('input[type="submit"]').prop 'disabled', true
+        $('body').addClass('sending')
+        return true
+      else
+        return false
   else
     if window.skip || confirm('確定送出？\n Are you sure you want to submit?')
       $('input[type="submit"]').prop 'disabled', true
