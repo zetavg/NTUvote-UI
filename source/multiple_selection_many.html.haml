@@ -1,0 +1,21 @@
+:javascript
+  window.selectionLimit = 4
+
+= form_tag '', :class => 'multiple-selection-form', :method => 'post' do
+  = text_field_tag :skipped, :value => false, :class => 'skipped', :style => 'display: none;'
+  .header
+    %hgroup.title
+      %h1 NTU Voting
+      %h2 點選你想要投給誰
+    .actions.two-actions
+      %button.button.skip 不領票 Skip
+      = submit_tag "送出選票 Submit", :class => "action button"
+    = text_field_tag :selection, :id => :selection, :type => :hidden
+  #main.main
+    .votes.many
+      .vote
+        - 20.times do |i|
+          .candidate.selection
+            .id= i+1
+            .elect
+            .name= fake_name
