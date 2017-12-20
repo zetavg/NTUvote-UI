@@ -18,6 +18,8 @@ body {
 }
 
 .header {
+	position: relative;
+	z-index: 100;
 	width: 100%;
 	width: 100vw;
 	height: 20%;
@@ -25,6 +27,8 @@ body {
 }
 
 .main {
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	width: 100vw;
 	height: 100%;
